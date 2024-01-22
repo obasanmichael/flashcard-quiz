@@ -9,9 +9,13 @@ import("node-fetch").then((nodeFetch) => {
   const app = express();
   const port = 3000;
 
-  mongoose.connect("mongodb://localhost:27017/quiz").then(() => {
-    console.log("database connected");
-  });
+  mongoose
+    .connect(
+      "mongodb+srv://obasantolu:<obastolu2005>@cluster0.nq4vrsl.mongodb.net/?retryWrites=true&w=majority"
+    )
+    .then(() => {
+      console.log("database connected");
+    });
 
   const questionSchema = new mongoose.Schema({
     question: String,
@@ -22,7 +26,6 @@ import("node-fetch").then((nodeFetch) => {
   const Question = mongoose.model("Question", questionSchema);
 
   app.use(bodyParser.json());
-  
 
   app.get("/api/questions/:category", async (req, res) => {
     const { category } = req.params;
@@ -67,7 +70,7 @@ import("node-fetch").then((nodeFetch) => {
   });
 
   app.use(express.static("public"));
-  
+
   app.listen(port, () => {
     console.log(`Server is running at port ${port}`);
   });
