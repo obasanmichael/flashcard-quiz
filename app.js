@@ -11,7 +11,7 @@ import("node-fetch").then((nodeFetch) => {
 
   mongoose
     .connect(
-      "mongodb+srv://obasantolu:<obastolu2005>@cluster0.nq4vrsl.mongodb.net/?retryWrites=true&w=majority"
+      "mongodb+srv://obasantolu:obastolu2005@cluster0.nq4vrsl.mongodb.net/?retryWrites=true&w=majority"
     )
     .then(() => {
       console.log("database connected");
