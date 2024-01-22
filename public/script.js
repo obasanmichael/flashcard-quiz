@@ -1,7 +1,12 @@
 const progressBar = document.querySelector(".progress-bar"),
   progressText = document.querySelector(".progress-text");
 
-  
+let questions = [],
+  time = 30,
+  score = 0,
+  currentQuestion,
+  timer;
+
 const progress = (value) => {
   const percentage = (value / time) * 100;
   progressBar.style.width = `${percentage}%`;
@@ -16,31 +21,25 @@ const startBtn = document.querySelector(".start"),
   quiz = document.querySelector(".quiz"),
   startScreen = document.querySelector(".start-screen");
 
-let questions = [],
-  time = 30,
-  score = 0,
-  currentQuestion,
-  timer;
-
-  const startQuiz = () => {
-    const num = numQuestions.value,
-      cat = category.value;
+const startQuiz = () => {
+  const num = numQuestions.value,
+    cat = category.value;
     
-    loadingAnimation();
-    const url = `https://opentdb.com/api.php?amount=${num}&category=${cat}&type=multiple`;
+  loadingAnimation();
+  const url = `https://opentdb.com/api.php?amount=${num}&category=${cat}&type=multiple`;
   
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => {
-        questions = data.results;
-        setTimeout(() => {
-          startScreen.classList.add("hide");
-          quiz.classList.remove("hide");
-          currentQuestion = 1;
-          showQuestion(questions[0]);
-        }, 1000);
-      });
-  };
+  fetch(url)
+    .then((res) => res.json())
+    .then((data) => {
+      questions = data.results;
+      setTimeout(() => {
+        startScreen.classList.add("hide");
+        quiz.classList.remove("hide");
+        currentQuestion = 1;
+        showQuestion(questions[0]);
+      }, 1000);
+    });
+};
 
 startBtn.addEventListener("click", startQuiz);
 
@@ -101,10 +100,10 @@ const startTimer = (time) => {
 };
 
 const loadingAnimation = () => {
-  startBtn.innerHTML = "Loading";
+  startBtn.innerHTML = "Wait a Minute";
   const loadingInterval = setInterval(() => {
     if (startBtn.innerHTML.length === 10) {
-      startBtn.innerHTML = "Loading";
+      startBtn.innerHTML = "Wait a Minute";
     } else {
       startBtn.innerHTML += ".";
     }

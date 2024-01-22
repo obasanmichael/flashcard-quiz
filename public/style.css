@@ -12,25 +12,36 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #f0f0f0; 
+  background-image: url("/public/images/background.jpg");
+  background-size: cover;
+  overflow-y: scroll;
+  background-attachment: fixed;
 }
 
 .container {
   position: relative;
   width: 100%;
-  max-width: 600px; 
-  background: transparent; 
+  max-width: 600px;
+  background: linear-gradient(
+    to bottom,
+    #001f3f,
+    #330066,
+    #660066,
+    #990099,
+    #330066,
+    #001f3f
+  );
   padding: 30px;
   overflow: hidden;
-  border-radius: 15px; 
+  border-radius: 15px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
 
 .heading {
   text-align: center;
   font-size: 40px;
-  color: #333; 
-  margin-bottom: 30px; 
+  color: #fff;
+  margin-bottom: 30px;
 }
 
 label {
@@ -38,6 +49,7 @@ label {
   font-size: 12px;
   margin-bottom: 10px;
   color: #fff;
+  font-weight: 700;
 }
 select {
   width: 100%;
@@ -80,7 +92,7 @@ select {
   height: 100%;
   border-radius: 30px;
   overflow: hidden;
-  background: linear-gradient(to right, #ea517c, #b478f1);
+  background: linear-gradient(to right, #4f8efb, #50c4f9);
   transition: 1s linear;
 }
 .timer .progress .progress-text {
@@ -149,7 +161,7 @@ select {
   opacity: 1;
 }
 .answer.correct {
-    border-color: #0cef2a;
+  border-color: #0cef2a;
 }
 .answer.wrong {
   border-color: #fc3939;
@@ -161,7 +173,7 @@ select {
 .btn {
   width: 100%;
   height: 50px; /* Reduced button height */
-  background: #4CAF50; /* Green button color */
+  background: #4caf50; /* Green button color */
   border: none;
   border-radius: 8px;
   color: #fff;
@@ -210,8 +222,8 @@ select {
   }
 }
 
-  #selected-category-container {
-    color: #a2aace;
-    font-size: 16px;
-    margin-bottom: 20px;
-  }
+#selected-category-container {
+  color: #a2aace;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
